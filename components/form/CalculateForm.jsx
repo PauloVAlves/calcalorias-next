@@ -136,17 +136,6 @@ const CalculateForm = () => {
         <Input value={portion} onChange={(e) => setPortion(e.target.value)} />
         <Button buttonName='Calcular' />
       </StyledForm>
-
-      {calculatedRecipe.kcal >= 0 && (
-        <>
-          <PrintTotalResult>
-            Calorias totais: {recipeTotalCalories.toFixed(1)}
-          </PrintTotalResult>
-          <PrintPortionResult>
-            Calorias por porção: {calculatedRecipe.kcal.toFixed(1)}
-          </PrintPortionResult>
-        </>
-      )}
     </>
   );
 };
