@@ -4,7 +4,6 @@ import CalculatedTable from '../components/CalculatedTable/CalculatedTable';
 import AddToListForm from '../components/form/AddToListForm';
 import CalculateForm from '../components/form/CalculateForm';
 import Table from '../components/table/Table';
-import '../styles/Home.module.css';
 
 const Home = () => {
   return (
