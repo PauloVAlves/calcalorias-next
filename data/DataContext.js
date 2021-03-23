@@ -6,10 +6,11 @@ const DataProvider = ({ children }) => {
   const API_URL = 'http://localhost:5000/v1/api/food/';
   const [foods, setFoods] = useState([]);
   const [recipe, setRecipe] = useState([]);
-  const [calculatedList, setCalculatedList] = useState([]);
+  const [calculatedRecipe, setCalculatedRecipe] = useState([]);
   const [portion, setPortion] = useState('');
   const [recipeCalculatedCalories, setRecipeCalculatedCalories] = useState(-1);
   const [recipeTotalCalories, setRecipeTotalCalories] = useState(-1);
+  const [initialValue, setInitialValue] = useState(0);
 
   useEffect(() => {
     const fetchFoods = () => {
@@ -34,19 +35,32 @@ const DataProvider = ({ children }) => {
     foods.forEach((food) => {
       if (food.name === name) {
         const newItem = {
-          id: food.id,
           name: food.name,
-          cal: food.kcal,
+          id: food.id,
+          kcal: food.kcal,
+          kj: food.kj,
+          protein: food.protein,
+          cholesterol: food.cholesterol,
+          carbohydrate: food.carbohydrate,
+          fiber: food.fiber,
+          sodium: food.sodium,
+          total_fats: food.total_fats,
+          saturated: food.saturated,
+          monosaturated: food.monosaturated,
+          polyunsaturated: food.polyunsaturated,
+          trans: food.trans,
           quantity: Number(quantity),
         };
         setRecipe([...recipe, newItem]);
       }
     });
   };
+
   const deleteItem = (id) => {
     setRecipe(recipe.filter((food) => food.id !== id));
     setRecipeCalculatedCalories(-1);
     setRecipeTotalCalories(-1);
+    setInitialValue(0);
     recipe < 1 && setPortion('');
   };
 
@@ -58,6 +72,7 @@ const DataProvider = ({ children }) => {
     setRecipeCalculatedCalories(-1);
     setRecipeTotalCalories(-1);
     setPortion('');
+    setInitialValue(0);
   };
 
   return (
@@ -65,8 +80,8 @@ const DataProvider = ({ children }) => {
       value={{
         recipe,
         setRecipe,
-        calculatedList,
-        setCalculatedList,
+        calculatedRecipe,
+        setCalculatedRecipe,
         portion,
         setPortion,
         foods,
@@ -77,6 +92,8 @@ const DataProvider = ({ children }) => {
         addToList,
         deleteItem,
         deleteTable,
+        initialValue,
+        setInitialValue,
       }}
     >
       {children}
