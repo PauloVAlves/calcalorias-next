@@ -24,7 +24,7 @@ const Ul = styled.ul`
   font-size: 1.5rem;
 
   li {
-    padding: 18px 10px;
+    padding: 0px 10px;
   }
 
   a {

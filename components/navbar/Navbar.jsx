@@ -23,6 +23,7 @@ const Nav = styled.nav`
   line-height: 2.6rem;
 
   .logo {
+    cursor: default;
     font-size: 2.3rem;
     padding: 15px 0;
   }
