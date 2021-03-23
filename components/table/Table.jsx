@@ -32,6 +32,7 @@ const Table = () => {
 const StyledTable = styled.div`
   max-width: 50%;
   margin: auto;
+  margin-top: 50px;
 
   .btn {
     display: flex;
