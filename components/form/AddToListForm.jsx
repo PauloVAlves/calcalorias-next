@@ -10,7 +10,6 @@ import { DataContext } from '../../data/DataContext';
 const AddToListForm = () => {
   const { addToList } = useContext(DataContext);
   const [foodName, setFoodName] = useState('');
-  const [foodId, setFoodId] = useState(0);
   const [foodQuantity, setFoodQuantity] = useState('');
   const [foods, setFoods] = useState([]);
   const [myFoods, setMyFoods] = useState([]);
@@ -32,18 +31,20 @@ const AddToListForm = () => {
     getNames();
   }, []);
 
-  const searchByName = (searchString) => {
-    let newItem = foods.filter((food) => food.description === searchString);
-    setMyFoods(newItem);
-
-    onSubmit(myFoods);
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(foodName);
-    console.log(myFoods);
+    if (!foodName) {
+      alert('O nome é obrigatório');
+      return;
+    }
+
+    if (!foodQuantity) {
+      alert('A quantidade é obrigatória');
+      return;
+    }
     addToList(foodName, foodQuantity);
+    setFoodName('');
+    setFoodQuantity('');
   };
 
   return (
