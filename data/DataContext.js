@@ -46,7 +46,7 @@ const DataProvider = ({ children }) => {
           sodium: food.sodium,
           total_fats: food.total_fats,
           saturated: food.saturated,
-          monosaturated: food.monosaturated,
+          monounsaturated: food.monounsaturated,
           polyunsaturated: food.polyunsaturated,
           trans: food.trans,
           quantity: Number(quantity),
