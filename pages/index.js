@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import CalculatedTable from '../components/CalculatedTable/CalculatedTable';
 import AddToListForm from '../components/form/AddToListForm';
+import CalculateForm from '../components/form/CalculateForm';
 import Table from '../components/table/Table';
 import '../styles/Home.module.css';
 
@@ -17,6 +19,8 @@ const Home = () => {
       </Head>
       <AddToListForm />
       <Table />
+      <CalculateForm />
+      <CalculatedTable />
     </Page>
   );
 };
