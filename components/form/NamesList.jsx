@@ -1,11 +1,26 @@
+import styled from 'styled-components';
+
 const NamesList = ({ names }) => {
   return (
-    <datalist className='name-list' id='names-list'>
+    <Datalist className='name-list' id='names-list'>
       {names.map((food) => (
-        <option key={food.id}>{food.description}</option>
+        <Option key={food.id}>{food.name}</Option>
       ))}
-    </datalist>
+    </Datalist>
   );
 };
+
+const Datalist = styled.datalist`
+  position: absolute;
+  background-color: lightgrey;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+`;
+const Option = styled.option`
+  background-color: #bbb;
+  padding: 4px;
+  margin-bottom: 1px;
+  cursor: pointer;
+`;
 
 export default NamesList;
