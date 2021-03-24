@@ -1,6 +1,6 @@
 ## About the App
 
-App to calcaulate nutritional values in recipes and food.
+App to calculate nutritional values in recipes and food.
 
 Build with:
 - <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> React
