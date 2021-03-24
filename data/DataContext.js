@@ -3,14 +3,16 @@ import React, { createContext, useState, useEffect } from 'react';
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const API_URL = 'http://localhost:5000/v1/api/food/';
+  const API_URL = 'https://floating-lowlands-85751.herokuapp.com/v1/api/food/';
   const [foods, setFoods] = useState([]);
   const [recipe, setRecipe] = useState([]);
   const [calculatedRecipe, setCalculatedRecipe] = useState([]);
-  const [portion, setPortion] = useState('');
+  const [portion, setPortion] = useState(0);
   const [recipeCalculatedCalories, setRecipeCalculatedCalories] = useState(-1);
   const [recipeTotalCalories, setRecipeTotalCalories] = useState(-1);
   const [initialValue, setInitialValue] = useState(0);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const fetchFoods = () => {
@@ -23,9 +25,16 @@ const DataProvider = ({ children }) => {
         },
       })
         .then((res) => res.json())
-        .then((result) => {
-          setFoods(result);
-        });
+        .then(
+          (result) => {
+            setIsLoaded(true);
+            setFoods(result);
+          },
+          (error) => {
+            setIsLoaded(true);
+            setError(error);
+          }
+        );
     };
 
     fetchFoods();
@@ -51,7 +60,11 @@ const DataProvider = ({ children }) => {
           trans: food.trans,
           quantity: Number(quantity),
         };
-        setRecipe([...recipe, newItem]);
+        try {
+          setRecipe([...recipe, newItem]);
+        } catch (error) {
+          setError(error);
+        }
       }
     });
   };
@@ -94,6 +107,8 @@ const DataProvider = ({ children }) => {
         deleteTable,
         initialValue,
         setInitialValue,
+        error,
+        isLoaded,
       }}
     >
       {children}
