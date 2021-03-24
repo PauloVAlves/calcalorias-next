@@ -7,7 +7,7 @@ const DataProvider = ({ children }) => {
   const [foods, setFoods] = useState([]);
   const [recipe, setRecipe] = useState([]);
   const [calculatedRecipe, setCalculatedRecipe] = useState([]);
-  const [portion, setPortion] = useState(0);
+  const [portion, setPortion] = useState('');
   const [recipeCalculatedCalories, setRecipeCalculatedCalories] = useState(-1);
   const [recipeTotalCalories, setRecipeTotalCalories] = useState(-1);
   const [initialValue, setInitialValue] = useState(0);
