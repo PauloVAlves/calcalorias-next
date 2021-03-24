@@ -134,6 +134,7 @@ const CalculateForm = () => {
           id='portion'
           className='portion'
           type='number'
+          placeholder='em gramas'
           value={portion}
           onChange={(e) => setPortion(e.target.value)}
         />

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-const Input = ({ id, className, type, value, list, onChange }) => {
+const Input = ({ id, className, type, value, list, onChange, placeholder }) => {
   return (
     <FoodInput
       id={id}
       className={className}
       type={type}
+      placeholder={placeholder}
       value={value}
       list={list}
       onChange={onChange}

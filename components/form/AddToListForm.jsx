@@ -35,6 +35,7 @@ const AddToListForm = () => {
         id='food-name'
         className='food-name'
         type='text'
+        placeholder='comece a digitar ou selecione'
         value={foodName}
         list='names-list'
         onChange={(e) => {
@@ -47,6 +48,7 @@ const AddToListForm = () => {
         id='food-quantity'
         className='food-quantity'
         type='number'
+        placeholder='em gramas'
         value={foodQuantity}
         onChange={(e) => setFoodQuantity(e.target.value)}
       />
