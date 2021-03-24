@@ -30,7 +30,7 @@ const Table = () => {
 };
 
 const StyledTable = styled.div`
-  max-width: 50%;
+  width: 50%;
   margin: auto;
   margin-top: 50px;
 
@@ -47,6 +47,15 @@ const StyledTable = styled.div`
   Button:hover {
     background-color: #aa4444;
   }
+
+  @media (max-width: 900px) {
+    margin: 20px auto;
+    width: 90%;
+
+    Button {
+      width: 100%;
+    }
+  }
 `;
 
 const TableItem = styled.div`
@@ -62,7 +71,7 @@ const TableItem = styled.div`
   }
 
   @media (max-width: 900px) {
-    max-width: 90%;
+    max-width: 100%;
   }
 `;
 

@@ -65,6 +65,11 @@ const StyledTable = styled.div`
   margin-bottom: 100px;
   font-size: 1.5rem;
   text-align: center;
+
+  @media (max-width: 900px) {
+    margin: 20px auto;
+    width: 90%;
+  }
 `;
 
 const TableItem = styled.div`
@@ -81,7 +86,7 @@ const TableItem = styled.div`
   }
 
   @media (max-width: 900px) {
-    max-width: 90%;
+    width: 90%;
   }
 `;
 

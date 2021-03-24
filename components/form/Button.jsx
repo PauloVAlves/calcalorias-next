@@ -22,7 +22,7 @@ const Button = styled.button`
   }
 
   @media (max-width: 900px) {
-    width: 80%;
+    width: 100%;
     font-size: 1.4rem;
     margin: 10px auto;
   }

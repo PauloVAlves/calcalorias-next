@@ -77,11 +77,20 @@ const AddToListForm = () => {
 const FoodForm = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
   text-align: left;
+
+  @media (max-width: 900px) {
+    margin: 20px auto;
+    width: 90%;
+
+    Button {
+      width: 100%;
+    }
+  }
 `;
 
 export default AddToListForm;

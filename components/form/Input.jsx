@@ -25,6 +25,10 @@ const FoodInput = styled.input`
   margin-right: auto;
   margin-bottom: 10px;
   outline: none;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 export default Input;
