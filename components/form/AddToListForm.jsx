@@ -8,28 +8,9 @@ import Label from './Label';
 import { DataContext } from '../../data/DataContext';
 
 const AddToListForm = () => {
-  const { addToList } = useContext(DataContext);
+  const { addToList, foods } = useContext(DataContext);
   const [foodName, setFoodName] = useState('');
   const [foodQuantity, setFoodQuantity] = useState('');
-  const [foods, setFoods] = useState([]);
-  const [myFoods, setMyFoods] = useState([]);
-
-  useEffect(() => {
-    const getNames = () => {
-      fetch('/names.json', {
-        headers: {
-          'Content-type': 'application/json',
-          Accept: 'application/json',
-        },
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          setFoods(result);
-        });
-    };
-
-    getNames();
-  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
