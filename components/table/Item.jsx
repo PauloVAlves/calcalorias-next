@@ -8,7 +8,7 @@ const Item = ({ item }) => {
   return (
     <StyledItem>
       <FoodName>{item.name}</FoodName>
-      <FoodQuantity>{item.quantity}</FoodQuantity>
+      <FoodQuantity>{item.quantity}g</FoodQuantity>
       <FoodActions>
         <FaTimes onClick={() => deleteItem(item.id)} />
       </FoodActions>
