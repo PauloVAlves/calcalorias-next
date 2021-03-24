@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { DataContext } from '../../data/DataContext';
 import Input from './Input';
 import Button from './Button';
@@ -8,13 +8,10 @@ const CalculateForm = () => {
   const {
     recipe,
     setCalculatedRecipe,
-    calculatedRecipe,
     portion,
     setPortion,
     setInitialValue,
   } = useContext(DataContext);
-
-  const [recipeTotalCalories, setRecipeTotalCalories] = useState(0);
 
   const base = 100;
 
@@ -80,7 +77,7 @@ const CalculateForm = () => {
         (caloriesPortion = food.kcal * quantityPortion)
       )
     );
-    setRecipeTotalCalories(caloriesPortion);
+
     return caloriesPortion;
   };
 
@@ -133,7 +130,13 @@ const CalculateForm = () => {
   return (
     <>
       <StyledForm onSubmit={calculate}>
-        <Input value={portion} onChange={(e) => setPortion(e.target.value)} />
+        <Input
+          id='portion'
+          className='portion'
+          type='number'
+          value={portion}
+          onChange={(e) => setPortion(e.target.value)}
+        />
         <Button buttonName='Calcular' />
       </StyledForm>
     </>
@@ -159,24 +162,9 @@ const StyledForm = styled.form`
     width: 90%;
 
     Button {
-      width: 80%;
+      width: 100%;
     }
   }
-`;
-
-const PrintTotalResult = styled.p`
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-top: 30px;
-`;
-
-const PrintPortionResult = styled.p`
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 900;
-  margin-top: 30px;
-  margin-bottom: 100px;
 `;
 
 export default CalculateForm;
