@@ -2,7 +2,7 @@ import DataProvider from '../data/DataContext';
 import Layout from '../components/Layout';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <DataProvider>
       <Layout>
@@ -10,6 +10,6 @@ function MyApp({ Component, pageProps }) {
       </Layout>
     </DataProvider>
   );
-}
+};
 
 export default MyApp;
