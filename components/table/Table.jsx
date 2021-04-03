@@ -23,7 +23,7 @@ const Table = () => {
   } else {
     return (
       <StyledTable>
-        <h3>Nenhum alimento foi adicionado à receita</h3>
+        <h3 className="no-food">Nenhum ingrediente foi adicionado à receita</h3>
       </StyledTable>
     );
   }
@@ -37,6 +37,10 @@ const StyledTable = styled.div`
   .btn {
     display: flex;
     justify-content: flex-end;
+  }
+
+  h3 {
+    text-align: center;
   }
 
   Button {
