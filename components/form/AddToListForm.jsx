@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import styled from 'styled-components';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from './Button';
 import Input from './Input';
 import NamesList from './NamesList';
@@ -11,11 +11,17 @@ const AddToListForm = () => {
   const { addToList, foods } = useContext(DataContext);
   const [foodName, setFoodName] = useState('');
   const [foodQuantity, setFoodQuantity] = useState('');
+  const [borderColor, setBorderColor] = useState(true);
+
+  const changeColor = () => {
+    setBorderColor(!borderColor);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
     if (!foodName) {
       alert('O nome é obrigatório');
+
       return;
     }
 
@@ -30,14 +36,15 @@ const AddToListForm = () => {
 
   return (
     <FoodForm onSubmit={onSubmit}>
-      <Label labelFor='food-name' labelName='Alimento' />
+      <Label labelFor='food-name' labelName='Ingrediente' />
       <Input
         id='food-name'
         className='food-name'
         type='text'
-        placeholder='comece a digitar ou selecione'
+        placeholder='comece a digitar ou selecione o ingrediente'
         value={foodName}
         list='names-list'
+        onClick={changeColor}
         onChange={(e) => {
           setFoodName(e.target.value);
         }}

@@ -26,6 +26,12 @@ const FoodInput = styled.input`
   margin-right: auto;
   margin-bottom: 10px;
   outline: none;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    border: 1px solid #333;
+  }
 
   @media (max-width: 900px) {
     width: 100%;

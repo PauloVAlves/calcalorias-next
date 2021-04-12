@@ -18,7 +18,10 @@ const Button = styled.button`
 
   &:hover {
     transition: all 0.5s ease-in-out;
-    background-color: #290cff;
+    background-color: #290CFF;
+    
+
+    box-shadow: 2px 2px 5px #000;
   }
 
   @media (max-width: 900px) {
