@@ -1,9 +1,11 @@
+import axios from 'axios';
 import React, { createContext, useState, useEffect } from 'react';
 
+// @ts-ignore
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const API_URL = 'https://floating-lowlands-85751.herokuapp.com/v1/api/food/';
+  const API_URL = 'https://rocky-sea-52406.herokuapp.com/api/ingredients';
   const [foods, setFoods] = useState([]);
   const [recipe, setRecipe] = useState([]);
   const [calculatedRecipe, setCalculatedRecipe] = useState([]);
@@ -15,8 +17,9 @@ const DataProvider = ({ children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const fetchFoods = () => {
-      fetch(API_URL, {
+    const getData = async () => {
+      
+        fetch(API_URL, {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
@@ -35,13 +38,32 @@ const DataProvider = ({ children }) => {
             setError(error);
           }
         );
-    };
 
-    fetchFoods();
+    }
+        getData();
+    
+
   }, []);
 
-  const addToList = (name, quantity) => {
-    foods.forEach((food) => {
+  const addToList = async (name, quantity) => {
+
+    try {
+    const data = await fetch(`${API_URL}/name/${name}`).then((res) => res.json()).then((result) => {
+      const newItem = {
+          ...result,
+          quantity: Number(quantity),
+        }
+        setRecipe([...recipe, newItem]);
+    })
+    
+
+    
+    
+  } catch (error) {
+    setError(error);
+  }
+
+    /* foods.forEach((food) => {
       if (food.name === name) {
         const newItem = {
           name: food.name,
@@ -60,13 +82,8 @@ const DataProvider = ({ children }) => {
           trans: food.trans,
           quantity: Number(quantity),
         };
-        try {
-          setRecipe([...recipe, newItem]);
-        } catch (error) {
-          setError(error);
-        }
       }
-    });
+    }); */
   };
 
   const deleteItem = (id) => {

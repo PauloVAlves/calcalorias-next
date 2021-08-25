@@ -4,7 +4,7 @@ const NamesList = ({ names }) => {
   return (
     <Datalist className='name-list' id='names-list'>
       {names.map((food) => (
-        <Option key={food.id}>{food.name}</Option>
+        <Option key={food._id}>{food.name}</Option>
       ))}
     </Datalist>
   );
